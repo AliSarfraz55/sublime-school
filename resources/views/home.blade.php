@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Sublime School System</title>
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('style.css') }}">
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <style>
@@ -409,61 +407,7 @@ html{
     width: 100%;
     pointer-events: auto;
 }
-/* ================= LIGHTBOX MOBILE FIX ================= */
 
-.lb-outerContainer{
-    max-width:95vw !important;
-    max-height:90vh !important;
-    margin:auto;
-    border-radius:18px;
-    overflow:hidden;
-}
-
-.lb-image{
-    width:auto !important;
-    height:auto !important;
-    max-width:95vw !important;
-    max-height:80vh !important;
-    border-radius:12px;
-}
-
-.lb-container{
-    padding:0 !important;
-}
-
-.lb-dataContainer{
-    width:100% !important;
-}
-
-.lb-close{
-    opacity:1 !important;
-}
-
-/* Background */
-
-.lb-overlay{
-    background:rgba(0,0,0,.9) !important;
-}
-
-/* ================= POPUP ANIMATION ================= */
-
-.lb-outerContainer{
-    animation:popupZoom .35s ease;
-}
-
-@keyframes popupZoom{
-    0%{
-        opacity:0;
-        transform:scale(.7);
-    }
-    70%{
-        transform:scale(1.05);
-    }
-    100%{
-        opacity:1;
-        transform:scale(1);
-    }
-}
 @media(max-width:768px){
 
     .about-content{
@@ -809,45 +753,6 @@ html{
     color:#2563eb;
     font-weight:700;
 }
-.image-modal{
-    display:none;
-    position:fixed;
-    z-index:99999;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,.95);
-    justify-content:center;
-    align-items:center;
-}
-
-.image-modal img{
-    max-width:90%;
-    max-height:90%;
-    border-radius:12px;
-    animation:zoom .3s ease;
-}
-
-.close{
-    position:absolute;
-    top:20px;
-    right:35px;
-    color:#fff;
-    font-size:45px;
-    cursor:pointer;
-}
-
-@keyframes zoom{
-    from{
-        transform:scale(.7);
-        opacity:0;
-    }
-    to{
-        transform:scale(1);
-        opacity:1;
-    }
-}
 /* Responsive */
 
 @media(max-width:992px){
@@ -1069,6 +974,17 @@ html{
     }
 
 }
+@media(max-width: 768px) {
+    .hero-stats {
+        justify-content: center;
+        gap: 12px;
+    }
+    .hero-stats div {
+        flex: 1;
+        min-width: 100px;
+        padding: 15px 10px;
+    }
+}
     </style>
 </head>
 
@@ -1255,168 +1171,168 @@ html{
         <div class="modules-grid">
 
             <div class="module-card">
-    <a href="{{ asset('images/m1.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m1.png') }}" class="module-link">
         <img src="{{ asset('images/m1.png') }}" alt="">
     </a>
     <h3>Teacher Guide</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m2.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m2.png') }}" class="module-link">
         <img src="{{ asset('images/m2.png') }}" alt="">
     </a>
     <h3>Topic</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m3.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m3.png') }}" class="module-link">
         <img src="{{ asset('images/m3.png') }}" alt="">
     </a>
     <h3>Work Book</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m4.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m4.png') }}" class="module-link">
         <img src="{{ asset('images/m4.png') }}" alt="">
     </a>
     <h3>Answer Key</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m5.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m5.png') }}" class="module-link">
         <img src="{{ asset('images/m5.png') }}" alt="">
     </a>
     <h3>Videos</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m6.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m6.png') }}" class="module-link">
         <img src="{{ asset('images/m6.png') }}" alt="">
     </a>
     <h3>Exam Pack</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m7.jpg') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m7.jpg') }}" class="module-link">
         <img src="{{ asset('images/m7.jpg') }}" alt="">
     </a>
     <h3>Summer Pack</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m8.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m8.png') }}" class="module-link">
         <img src="{{ asset('images/m8.png') }}" alt="">
     </a>
     <h3>Assessment</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m9.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m9.png') }}" class="module-link">
         <img src="{{ asset('images/m9.png') }}" alt="">
     </a>
     <h3>Result</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m10.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m10.png') }}" class="module-link">
         <img src="{{ asset('images/m10.png') }}" alt="">
     </a>
     <h3>Honour Wall</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m11.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m11.png') }}" class="module-link">
         <img src="{{ asset('images/m11.png') }}" alt="">
     </a>
     <h3>Daily Diary</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m12.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m12.png') }}" class="module-link">
         <img src="{{ asset('images/m12.png') }}" alt="">
     </a>
     <h3>Mind Map</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m13.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m13.png') }}" class="module-link">
         <img src="{{ asset('images/m13.png') }}" alt="">
     </a>
     <h3>Short Questions</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m14.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m14.png') }}" class="module-link">
         <img src="{{ asset('images/m14.png') }}" alt="">
     </a>
     <h3>MCQs</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m15.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m15.png') }}" class="module-link">
         <img src="{{ asset('images/m15.png') }}" alt="">
     </a>
     <h3>Cross Word</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m16.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m16.png') }}" class="module-link">
         <img src="{{ asset('images/m16.png') }}" alt="">
     </a>
     <h3>Word Game</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m17.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m17.png') }}" class="module-link">
         <img src="{{ asset('images/m17.png') }}" alt="">
     </a>
     <h3>Jumbled Word</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m18.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m18.png') }}" class="module-link">
         <img src="{{ asset('images/m18.png') }}" alt="">
     </a>
     <h3>Activity</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m19.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m19.png') }}" class="module-link">
         <img src="{{ asset('images/m19.png') }}" alt="">
     </a>
     <h3>Column</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m20.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m20.png') }}" class="module-link">
         <img src="{{ asset('images/m20.png') }}" alt="">
     </a>
     <h3>Fill Ups</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m21.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m21.png') }}" class="module-link">
         <img src="{{ asset('images/m21.png') }}" alt="">
     </a>
     <h3>True & False</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m22.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m22.png') }}" class="module-link">
         <img src="{{ asset('images/m22.png') }}" alt="">
     </a>
     <h3>Labelling</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m23.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m23.png') }}" class="module-link">
         <img src="{{ asset('images/m23.png') }}" alt="">
     </a>
     <h3>Drag & Drop</h3>
 </div>
 
 <div class="module-card">
-    <a href="{{ asset('images/m24.png') }}" data-lightbox="modules">
+    <a href="{{ asset('images/m24.png') }}" class="module-link">
         <img src="{{ asset('images/m24.png') }}" alt="">
     </a>
     <h3>Applications</h3>
@@ -1520,53 +1436,11 @@ html{
 
  @include('includes.footer')
 @include('includes.scroll')
-<!-- Image Popup -->
 
-<div id="imageModal" class="image-modal">
-
-    <span class="close" onclick="closeImage()">&times;</span>
-
-    <img id="popupImage">
-
-</div>
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 <script>
-
-function openImage(src){
-
-    document.getElementById('imageModal').style.display='flex';
-
-    document.getElementById('popupImage').src=src;
-
-}
-
-function closeImage(){
-
-    document.getElementById('imageModal').style.display='none';
-
-}
-
-document.getElementById('imageModal').addEventListener('click',function(e){
-
-    if(e.target==this){
-
-        closeImage();
-
-    }
-
-});
-
-</script>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
-<script>
-lightbox.option({
-    resizeDuration: 250,
-    imageFadeDuration: 250,
-    fadeDuration: 250,
-    wrapAround: true,
-    disableScrolling: true,
-    fitImagesInViewport: true
+const lightbox = GLightbox({
+    selector: '.module-link'
 });
 </script>
 

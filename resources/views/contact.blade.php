@@ -329,23 +329,21 @@ section{
     resize:none;
 }
 
-.contact-form button{
+.contact-form button.submit-btn{
     border:none;
     cursor:pointer;
-
     background:#2563eb;
     color:#fff;
-
     padding:16px;
     border-radius:12px;
-
     font-size:16px;
     font-weight:700;
-
     transition:.3s;
+    width:100%;
+    display:block;
 }
 
-.contact-form button:hover{
+.contact-form button.submit-btn:hover{
     background:#f59e0b;
 }
 
@@ -685,7 +683,7 @@ required></textarea>
 
 <button
 type="submit"
-class="btn">
+class="submit-btn">
 
 Send Message
 

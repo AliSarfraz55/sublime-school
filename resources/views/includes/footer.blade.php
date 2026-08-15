@@ -97,6 +97,7 @@ footer ul li a:hover{
 }
 
 .contact-item i{
+    flex-shrink: 0;
     width:42px;
     height:42px;
     border-radius:50%;

@@ -110,15 +110,6 @@ section{
 
 /* ================= BLOG GRID ================= */
 
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-}
-
-section{
-    padding:100px 0;
-}
 .section-title{
     font-size:42px;
     font-weight:800;
@@ -141,13 +132,6 @@ section{
     margin:15px auto 0;
     border-radius:20px;
 }
-.section-title{
-    font-size:42px;
-    font-weight:800;
-    text-align:center;
-    margin-bottom:60px;
-    color:#0f172a;
-}
 
 /* BLOG CARDS */
 
@@ -163,6 +147,8 @@ section{
     overflow:hidden;
     box-shadow:0 12px 35px rgba(0,0,0,.08);
     transition:.35s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .blog-card:hover{
@@ -188,6 +174,9 @@ section{
 
 .blog-content{
     padding:25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .blog-date{
@@ -202,23 +191,28 @@ section{
     margin-bottom:10px;
 }
 
+/* STRICTLY 2 LINES DESCRIPTION WITH ELLIPSIS (...) */
 .blog-content p{
     font-size:15px;
-    line-height:1.8;
+    line-height:1.6;
     color:#475569;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 15px;
 }
 
 .read-more{
     display:inline-block;
-    margin-top:15px;
+    margin-top: auto;
     color:#2563eb;
     font-weight:700;
     text-decoration:none;
 }
 
 /* ================= FEATURED POST ================= */
-
-
 
 .featured{
     background:#f8fafc;
@@ -292,6 +286,7 @@ section{
 /* meta info */
 .featured-meta{
     display:flex;
+    flex-wrap:wrap;
     gap:20px;
     margin:20px 0;
     font-size:14px;
@@ -318,6 +313,7 @@ section{
     text-decoration:none;
     font-weight:600;
     transition:.3s;
+    display:inline-block;
 }
 
 .btn-primary:hover{
@@ -333,6 +329,7 @@ section{
     text-decoration:none;
     font-weight:600;
     transition:.3s;
+    display:inline-block;
 }
 
 .btn-outline:hover{
@@ -340,16 +337,6 @@ section{
     color:#fff;
 }
 
-/* RESPONSIVE */
-@media(max-width:992px){
-    .featured-box{
-        grid-template-columns:1fr;
-    }
-
-    .featured-text h2{
-        font-size:30px;
-    }
-}
 /* ================= CTA ================= */
 
 .cta{
@@ -416,6 +403,7 @@ section{
     background:#f59e0b;
     color:#fff;
 }
+
 /* ================= RESPONSIVE ================= */
 
 @media(max-width:992px){
@@ -425,6 +413,20 @@ section{
 
     .featured-box{
         grid-template-columns:1fr;
+    }
+
+    .featured-text h2{
+        font-size:30px;
+    }
+}
+
+@media(max-width:768px) {
+    .featured-actions {
+        flex-direction: column;
+    }
+    .btn-primary, .btn-outline {
+        width: 100%;
+        text-align: center;
     }
 }
 
@@ -462,7 +464,6 @@ section{
         <p>Latest News, Events & Student Stories</p>
     </div>
 </section>
-
 
 <!-- FEATURED POST -->
 @if($featured)
@@ -527,7 +528,6 @@ View More Posts
 
 @endif
 
-
 <!-- BLOG POSTS -->
 <section>
     <div class="container">
@@ -564,7 +564,7 @@ View More Posts
 
 <p>
 
-{{ Str::limit($blog->short_description,100) }}
+{{ $blog->short_description }}
 
 </p>
 
