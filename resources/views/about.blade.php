@@ -123,6 +123,7 @@
     transition:.4s ease;
 
     border-top:5px solid #2563eb;
+    cursor: pointer;
 }
 
 .mv-card:hover{
@@ -184,6 +185,12 @@
     padding:40px;
     border-radius:25px;
     box-shadow:0 10px 30px rgba(0,0,0,.06);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.principal-text:hover {
+    box-shadow: 0 15px 40px rgba(0,0,0,.12);
 }
 
 .principal-text .section-title{
@@ -224,6 +231,7 @@
     0 10px 30px rgba(0,0,0,.08);
 
     transition:.3s ease;
+    cursor: pointer;
 }
 
 .feature:hover{
@@ -265,6 +273,7 @@
     0 10px 30px rgba(0,0,0,.08);
 
     transition:.3s ease;
+    cursor: pointer;
 }
 
 .highlight:hover{
@@ -362,6 +371,7 @@
     padding:0;
     box-sizing:border-box;
     font-family:Arial,sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body{
@@ -484,14 +494,89 @@ section{
         gap:15px;
     }
 }
+
+/* ================= CUSTOM UNIVERSAL MODAL POPUP ================= */
+.custom-modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.custom-modal-content {
+    background: #fff;
+    width: 100%;
+    max-width: 650px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 40px;
+    border-radius: 24px;
+    position: relative;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+    animation: modalZoom 0.3s ease;
+    text-align: left;
+}
+
+.custom-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 32px;
+    color: #0f172a;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.custom-modal-close:hover {
+    color: #2563eb;
+}
+
+#modalIcon {
+    font-size: 45px;
+    color: #2563eb;
+    margin-bottom: 15px;
+    display: block;
+    text-align: center;
+}
+
+#modalTitle {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#modalDesc {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #475569;
+}
+
+@keyframes modalZoom {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 </style>
 <body>
     @include('includes.aos')
     @include('includes.navbar')
 @include('includes.whatsapp')    
 
-
-<!-- ABOUT HERO -->
 
 <section class="about-hero">
 
@@ -506,8 +591,6 @@ section{
     </div>
 
 </section>
-
-<!-- SCHOOL INTRO -->
 
 <section class="about-school">
 
@@ -536,15 +619,13 @@ section{
 
 </section>
 
-<!-- MISSION VISION -->
-
 <section class="mission-vision">
 
     <div class="container">
 
         <div class="mv-grid">
 
-            <div class="mv-card">
+            <div class="mv-card" onclick="openModal('Our Mission', 'To provide high quality education that empowers students to become confident, ethical, and responsible citizens. We strive to cultivate inquisitive minds through interactive learning modules, moral discipline, and personalized mentorship, ensuring every child achieves their utmost potential.', 'fas fa-bullseye')">
                 <i class="fas fa-bullseye"></i>
                 <h3>Our Mission</h3>
 
@@ -555,7 +636,7 @@ section{
 
             </div>
 
-            <div class="mv-card">
+            <div class="mv-card" onclick="openModal('Our Vision', 'To be a leading educational institution that nurtures future leaders, innovators, and visionaries. We envision a dynamic campus culture where modern technology meets traditional values, preparing young minds to successfully navigate and excel in a rapidly evolving global society.', 'fas fa-eye')">
                 <i class="fas fa-eye"></i>
                 <h3>Our Vision</h3>
 
@@ -572,17 +653,17 @@ section{
 
 </section>
 
-<!-- PRINCIPAL MESSAGE -->
-
 <section class="principal">
 
     <div class="container principal-content">
 
         <div class="principal-image">
-            <img src="images/p1.png">
+            <a href="{{ asset('images/p1.png') }}" class="principal-img-link">
+                <img src="images/p1.png" alt="Principal">
+            </a>
         </div>
 
-        <div class="principal-text">
+        <div class="principal-text" onclick="openModal('Principal\'s Complete Message', 'Dear Parents, Students, and Well-Wishers,\n\nWelcome to Sublime School System! As the Principal, it is my utmost privilege to lead an institution where education transcends ordinary textbooks and shapes the holistic character of every child.\n\nWe firmly believe that every child possesses unique potential waiting to be unlocked. Our dedicated faculty and staff work tirelessly to foster an inspiring, disciplined, and nurturing environment where curiosity is encouraged, moral values are deeply instilled, and academic rigor goes hand-in-hand with emotional well-being.\n\nEducation is a collaborative partnership between the school, parents, and the community. Together, we can guide our students to become confident, resilient, and socially responsible leaders of tomorrow. Thank you for entrusting us with your child\'s future.\n\nWarm Regards,\nSarfraz Ahmad Bhatti', 'fas fa-user-tie')">
 
             <h2 class="section-title">
                 Principal's Message
@@ -591,7 +672,7 @@ section{
             <p>
                 We believe every child has unique potential.
                 Our goal is to provide opportunities that help
-                students excel academically and personally.
+                students excel academically and personally. (Click here to read full message)
             </p>
 
             <br>
@@ -604,8 +685,6 @@ section{
 
 </section>
 
-<!-- FACILITIES -->
-
 <section class="facilities">
 
     <div class="container">
@@ -616,32 +695,32 @@ section{
 
         <div class="features">
 
-            <div class="feature">
+            <div class="feature" onclick="openModal('Smart Classrooms Facility', 'Our smart classrooms feature high-speed internet, multimedia projectors, and digital boards to make learning interactive and engaging.', 'fas fa-school')">
                 <i class="fas fa-school"></i>
                 <h3>Smart Classrooms</h3>
             </div>
 
-                    <div class="feature">
+            <div class="feature" onclick="openModal('Qualified Teachers Support', 'Our experienced educators provide regular guidance, personal attention, and rigorous mentoring to ensure top-tier academic results.', 'fas fa-chalkboard-teacher')">
                 <i class="fas fa-chalkboard-teacher"></i>
                 <h3>Qualified Teachers</h3>
             </div>
 
-            <div class="feature">
+            <div class="feature" onclick="openModal('Academic Excellence Standards', 'We maintain exceptional educational standards with comprehensive testing, conceptual clarity, and regular student performance tracking.', 'fas fa-graduation-cap')">
                 <i class="fas fa-graduation-cap"></i>
                 <h3>Academic Excellence</h3>
             </div>
 
-            <div class="feature">
+            <div class="feature" onclick="openModal('Achievements & Awards Program', 'We celebrate student success across academic contests, sports events, science fairs, and annual cultural celebrations.', 'fas fa-trophy')">
                 <i class="fas fa-trophy"></i>
                 <h3>Achievements & Awards</h3>
             </div>
 
-            <div class="feature">
+            <div class="feature" onclick="openModal('Career Guidance & Counseling', 'Professional mentorship helps students identify their strengths and map out successful career trajectories from an early stage.', 'fas fa-compass')">
                 <i class="fas fa-compass"></i>
                 <h3>Career Guidance</h3>
             </div>
 
-            <div class="feature">
+            <div class="feature" onclick="openModal('Safe & Secure Campus Environment', 'Our campus is fully secured with 24/7 CCTV monitoring, gated entry checkpoints, and disciplined security personnel.', 'fas fa-shield-alt')">
                 <i class="fas fa-shield-alt"></i>
                 <h3>Safe Environment</h3>
             </div>
@@ -652,30 +731,28 @@ section{
 
 </section>
 
-<!-- STATS -->
-
 <section class="stats">
 
     <div class="container">
 
         <div class="highlight-grid">
 
-            <div class="highlight">
+            <div class="highlight" onclick="openModal('250+ Enrolled Students Community', 'A vibrant student body participating actively in academics, sports, and co-curricular programs.', 'fas fa-user-graduate')">
                 <h2>250+</h2>
                 <p>Students</p>
             </div>
 
-            <div class="highlight">
+            <div class="highlight" onclick="openModal('15+ Expert Faculty Members', 'Dedicated instructors focused on student-centric teaching and intellectual growth.', 'fas fa-chalkboard-teacher')">
                 <h2>15+</h2>
                 <p>Teachers</p>
             </div>
 
-            <div class="highlight">
+            <div class="highlight" onclick="openModal('25+ Years of Proven Legacy', 'Over two decades of unmatched commitment to quality education and institutional discipline.', 'fas fa-award')">
                 <h2>25+</h2>
                 <p>Years Experience</p>
             </div>
 
-            <div class="highlight">
+            <div class="highlight" onclick="openModal('100% Quality Education Commitment', 'Ensuring top-tier knowledge delivery and comprehensive moral development.', 'fas fa-book')">
                 <h2>100%</h2>
                 <p>Quality Education</p>
             </div>
@@ -685,8 +762,6 @@ section{
     </div>
 
 </section>
-
-<!-- CTA -->
 
 <section class="cta">
 
@@ -703,8 +778,8 @@ section{
         <br>
 
         <a href="{{ url('/applynow') }}" class="btn">
-    Apply Now
-</a>
+            Apply Now
+        </a>
 
     </div>
 
@@ -712,5 +787,43 @@ section{
 
  @include('includes.footer')
 @include('includes.scroll')
+
+<div id="universalModal" class="custom-modal">
+    <div class="custom-modal-content">
+        <span class="custom-modal-close" onclick="closeModal()">&times;</span>
+        <i id="modalIcon" class=""></i>
+        <h3 id="modalTitle"></h3>
+        <p id="modalDesc" style="white-space: pre-line;"></p>
+    </div>
+</div>
+
+<link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+<script>
+const lightbox = GLightbox({
+    selector: '.principal-img-link'
+});
+
+// Universal Modal JavaScript Functions
+function openModal(title, description, iconClass) {
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalDesc').innerText = description;
+    document.getElementById('modalIcon').className = iconClass;
+    document.getElementById('universalModal').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('universalModal').style.display = 'none';
+}
+
+window.addEventListener('click', function(event) {
+    let modal = document.getElementById('universalModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+});
+</script>
+
 </body>
 </html>

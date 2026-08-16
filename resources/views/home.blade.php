@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Sublime School System</title>
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('style.css') }}">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-        <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+    <style>
 :root{
     --primary:#2563eb;
     --secondary:#0f172a;
@@ -23,6 +22,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body{
@@ -114,8 +114,6 @@ html{
 
 /* Text */
 
-
-
 .hero-text h1{
     font-size:78px;
     line-height:1.05;
@@ -149,12 +147,11 @@ html{
     text-decoration:none;
     font-weight:700;
     transition:.35s ease;
-}
-
-.btn{
     background:#fff;
     color:#2563eb;
     box-shadow:0 15px 35px rgba(0,0,0,.2);
+    display:inline-block;
+    cursor:pointer;
 }
 
 .btn:hover{
@@ -180,18 +177,13 @@ html{
     min-width:140px;
     padding:25px;
     text-align:center;
-
     background:rgba(255,255,255,.10);
     backdrop-filter:blur(12px);
-
     border:1px solid rgba(255,255,255,.15);
-
     border-radius:20px;
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.15);
-
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
     transition:.3s ease;
+    cursor: pointer;
 }
 
 .hero-stats div:hover{
@@ -222,10 +214,7 @@ html{
     aspect-ratio:16/9;
     object-fit:cover;
     border-radius:30px;
-
-    box-shadow:
-    0 30px 80px rgba(0,0,0,.25);
-
+    box-shadow:0 30px 80px rgba(0,0,0,.25);
     border:8px solid rgba(255,255,255,.08);
 }
 
@@ -246,7 +235,6 @@ html{
 /* Responsive */
 
 @media(max-width:992px){
-
     .hero-content{
         grid-template-columns:1fr;
         text-align:center;
@@ -266,7 +254,6 @@ html{
 }
 
 @media(max-width:768px){
-
     .hero{
         padding:80px 0;
     }
@@ -295,12 +282,6 @@ html{
     background:#f8fafc;
 }
 
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-}
-
 .highlight-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -315,6 +296,7 @@ html{
     box-shadow:0 10px 30px rgba(0,0,0,.08);
     transition:.3s ease;
     border-top:4px solid #2563eb;
+    cursor:pointer;
 }
 
 .highlight:hover{
@@ -364,52 +346,14 @@ html{
     object-fit:cover;
     box-shadow:0 20px 50px rgba(0,0,0,.12);
 }
-.section-title{
-    font-size:42px;
-    font-weight:800;
-    color:#0f172a;
-    text-align:center;
-    margin-bottom:60px;
-    position:relative;
-}
-
-.section-title::after{
-    content:"";
-    width:80px;
-    height:4px;
-    background:linear-gradient(
-        90deg,
-        var(--primary),
-        var(--accent)
-    );
-    display:block;
-    margin:15px auto 0;
-    border-radius:20px;
-}
 
 .about-text p{
     font-size:18px;
     line-height:1.9;
     color:#475569;
 }
-.module-card{
-    position: relative;
-}
-
-.module-card a{
-    display: block;
-    position: relative;
-    z-index: 9999;
-}
-
-.module-card img{
-    display: block;
-    width: 100%;
-    pointer-events: auto;
-}
 
 @media(max-width:768px){
-
     .about-content{
         grid-template-columns:1fr;
     }
@@ -430,15 +374,12 @@ html{
 /* Responsive */
 
 @media(max-width:992px){
-
     .highlight-grid{
         grid-template-columns:repeat(2,1fr);
     }
-
 }
 
 @media(max-width:768px){
-
     .highlight-grid{
         grid-template-columns:repeat(2,1fr);
         gap:15px;
@@ -459,7 +400,6 @@ html{
     .highlight p{
         font-size:13px;
     }
-
 }
 
 
@@ -468,29 +408,6 @@ html{
 .why-us{
     padding:100px 0;
     background:#ffffff;
-}
-
-.section-title{
-    font-size:42px;
-    font-weight:800;
-    color:#0f172a;
-    text-align:center;
-    margin-bottom:60px;
-    position:relative;
-}
-
-.section-title::after{
-    content:"";
-    width:80px;
-    height:4px;
-    background:linear-gradient(
-        90deg,
-        var(--primary),
-        var(--accent)
-    );
-    display:block;
-    margin:15px auto 0;
-    border-radius:20px;
 }
 
 .features{
@@ -506,6 +423,7 @@ html{
     border-radius:20px;
     transition:.3s ease;
     border:1px solid #e2e8f0;
+    cursor:pointer;
 }
 
 .feature:hover{
@@ -535,7 +453,6 @@ html{
 /* Responsive */
 
 @media(max-width:768px){
-
     .features{
         grid-template-columns:repeat(2,1fr);
         gap:15px;
@@ -557,7 +474,6 @@ html{
     .section-title{
         font-size:32px;
     }
-
 }
 /* learning resources */
 .learning-modules{
@@ -583,6 +499,14 @@ html{
         0 10px 30px rgba(15,23,42,.08),
         0 2px 10px rgba(15,23,42,.04);
     transition:all .4s cubic-bezier(.4,0,.2,1);
+    cursor: pointer;
+}
+
+/* Remove blue link color and underlines inside module cards */
+.module-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .module-card::before{
@@ -597,6 +521,7 @@ html{
     opacity:0;
     transition:.4s;
     z-index:1;
+    pointer-events: none; /* Allows click to pass through the hover overlay */
 }
 
 .module-card:hover{
@@ -616,6 +541,8 @@ html{
     object-fit:cover;
     display:block;
     transition:transform .6s ease;
+    position: relative;
+    z-index: 2;
 }
 
 .module-card:hover img{
@@ -697,6 +624,7 @@ html{
 
 .principal-image{
     position:relative;
+    cursor: pointer;
 }
 
 .principal-image img{
@@ -716,29 +644,12 @@ html{
     padding:40px;
     border-radius:25px;
     box-shadow:0 10px 30px rgba(0,0,0,.06);
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
-.section-title{
-    font-size:42px;
-    font-weight:800;
-    color:#0f172a;
-    text-align:center;
-    margin-bottom:60px;
-    position:relative;
-}
-
-.section-title::after{
-    content:"";
-    width:80px;
-    height:4px;
-    background:linear-gradient(
-        90deg,
-        var(--primary),
-        var(--accent)
-    );
-    display:block;
-    margin:15px auto 0;
-    border-radius:20px;
+.principal-text:hover {
+    box-shadow: 0 15px 40px rgba(0,0,0,.12);
 }
 
 .principal-text p{
@@ -753,47 +664,22 @@ html{
     color:#2563eb;
     font-weight:700;
 }
+
 /* Responsive */
 
 @media(max-width:992px){
-
     .principal-content{
         grid-template-columns:1fr;
         text-align:center;
     }
 
-.section-title{
-    font-size:42px;
-    font-weight:800;
-    color:#0f172a;
-    text-align:center;
-    margin-bottom:60px;
-    position:relative;
-}
-
-.section-title::after{
-    content:"";
-    width:80px;
-    height:4px;
-    background:linear-gradient(
-        90deg,
-        var(--primary),
-        var(--accent)
-    );
-    display:block;
-    margin:15px auto 0;
-    border-radius:20px;
-}
-
     .principal-image{
         max-width:350px;
         margin:auto;
     }
-
 }
 
 @media(max-width:768px){
-
     .principal{
         padding:70px 0;
     }
@@ -801,8 +687,8 @@ html{
     .principal-text{
         padding:25px;
     }
-
 }
+
 /* ================= NEWS & EVENTS ================= */
 
 .news{
@@ -824,6 +710,7 @@ html{
     border-top:5px solid #2563eb;
     box-shadow:0 10px 30px rgba(0,0,0,.08);
     transition:.4s ease;
+    cursor: pointer;
 }
 
 .news-card:hover{
@@ -859,15 +746,12 @@ html{
 /* Responsive */
 
 @media(max-width:992px){
-
     .news-grid{
         grid-template-columns:1fr 1fr;
     }
-
 }
 
 @media(max-width:768px){
-
     .news{
         padding:70px 0;
     }
@@ -879,8 +763,8 @@ html{
     .news-card{
         padding:30px 20px;
     }
-
 }
+
 /* ================= CTA SECTION ================= */
 
 .cta{
@@ -952,15 +836,25 @@ html{
     background:#f59e0b;
     color:#fff;
 }
-.btn{
-    display:inline-block;
-    text-decoration:none;
-    cursor:pointer;
+
+/* Footer Single Line Address Fix */
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 18px;
+    color: #cbd5e1;
 }
+.contact-item i {
+    flex-shrink: 0;
+}
+.contact-item span {
+    white-space: nowrap;
+}
+
 /* Responsive */
 
 @media(max-width:768px){
-
     .cta{
         padding:80px 0;
     }
@@ -972,8 +866,8 @@ html{
     .cta p{
         font-size:16px;
     }
-
 }
+
 @media(max-width: 768px) {
     .hero-stats {
         justify-content: center;
@@ -983,6 +877,84 @@ html{
         flex: 1;
         min-width: 100px;
         padding: 15px 10px;
+    }
+}
+
+/* ================= CUSTOM UNIVERSAL MODAL POPUP ================= */
+.custom-modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.custom-modal-content {
+    background: #fff;
+    width: 100%;
+    max-width: 650px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 40px;
+    border-radius: 24px;
+    position: relative;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+    animation: modalZoom 0.3s ease;
+    text-align: left;
+}
+
+.custom-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 32px;
+    color: #0f172a;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.custom-modal-close:hover {
+    color: #2563eb;
+}
+
+#modalIcon {
+    font-size: 45px;
+    color: #2563eb;
+    margin-bottom: 15px;
+    display: block;
+    text-align: center;
+}
+
+#modalTitle {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#modalDesc {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #475569;
+}
+
+@keyframes modalZoom {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
     }
 }
     </style>
@@ -1027,8 +999,6 @@ html{
 
             <div class="hero-text">
 
-             
-
                 <h1>
                     Building Future Leaders Through
                     <span>Quality Education</span>
@@ -1041,22 +1011,21 @@ html{
 
                 <div class="hero-buttons">
                     <a href="{{ url('/applynow') }}" class="btn">Apply For Admission</a>
-                    
                 </div>
 
                 <div class="hero-stats">
 
-                    <div>
+                    <div onclick="openModal('250+ Enrolled Students Community', 'Our vibrant student community comprises over 250 energetic and disciplined minds actively engaged in rigorous academic coursework, competitive sports tournaments, science exhibitions, and creative art clubs.\n\nWe carefully maintain an optimal student-teacher ratio to guarantee personalized mentorship, individual academic attention, and holistic emotional and moral development for every child.\n\nOur students consistently demonstrate exemplary discipline, mutual respect, and enthusiasm for learning across all school activities.\n\nThrough structured teamwork and collaborative group projects, they build lifelong friendships and exceptional leadership skills from an early age.', 'fas fa-user-graduate')">
                         <h2>250+</h2>
                         <span>Students</span>
                     </div>
 
-                    <div>
+                    <div onclick="openModal('Dedicated & Expert Faculty (15+ Teachers)', 'Our teaching staff consists of seasoned educators and subject-matter experts who employ modern pedagogical strategies. They focus heavily on individual student attention, emotional intelligence, critical thinking, and interactive classroom participation to ensure comprehensive learning outcomes.', 'fas fa-chalkboard-teacher')">
                         <h2>15+</h2>
                         <span>Teachers</span>
                     </div>
 
-                    <div>
+                    <div onclick="openModal('25+ Years of Proven Milestone Success', 'With more than two and a half decades of uncompromised educational standards, our institution continues to pioneer innovative learning methodologies. We celebrate a rich history of producing top-tier board position holders, dynamic leaders, and responsible citizens.', 'fas fa-award')">
                         <h2>25+</h2>
                         <span>Years</span>
                     </div>
@@ -1083,25 +1052,25 @@ html{
 
             <div class="highlight-grid">
 
-                <div class="highlight">
+                <div class="highlight" onclick="openModal('25+ Years of Educational Experience', 'Our 25+ years of institutional experience reflect our deep expertise in child psychology, modern curriculum delivery, and character building. We have continuously evolved our infrastructure and teaching methodologies to match global educational standards while retaining core moral values.', 'fas fa-trophy')">
                     <i class="fas fa-trophy"></i>
                     <h3>25+ Years</h3>
                     <p>Experience</p>
                 </div>
 
-                <div class="highlight">
+                <div class="highlight" onclick="openModal('250+ Enrolled Students Community', 'Our student body comprises 250+ energetic minds engaged in rigorous academic programs, competitive sports, science clubs, and creative arts. We maintain an optimal student-teacher ratio to guarantee personalized mentorship for every child.', 'fas fa-user-graduate')">
                     <i class="fas fa-user-graduate"></i>
                     <h3>250+</h3>
                     <p>Students</p>
                 </div>
 
-                <div class="highlight">
+                <div class="highlight" onclick="openModal('15+ Highly Qualified Instructors', 'Our 15+ faculty members undergo continuous professional development workshops. They are well-versed in modern smart-classroom techniques, activity-based learning, and comprehensive student evaluation systems.', 'fas fa-chalkboard-teacher')">
                     <i class="fas fa-chalkboard-teacher"></i>
                     <h3>15+</h3>
                     <p>Teachers</p>
                 </div>
 
-                <div class="highlight">
+                <div class="highlight" onclick="openModal('100% Commitment to Quality Education', 'We ensure 100% delivery of standard-compliant education that nurtures cognitive, physical, and emotional growth. Our assessment frameworks are designed to test analytical skills rather than rote memorization.', 'fas fa-book')">
                     <i class="fas fa-book"></i>
                     <h3>100%</h3>
                     <p>Quality Education</p>
@@ -1127,31 +1096,31 @@ html{
 
             <div class="features">
 
-                <div class="feature">
+                <div class="feature" onclick="openModal('Modern Curriculum Framework', 'Our modern curriculum is carefully structured to balance core academics with 21st-century essential skills such as digital literacy, creative problem solving, financial awareness, and effective interpersonal communication.', 'fas fa-book-open')">
                     <i class="fas fa-book-open"></i>
                     <h3>Modern Curriculum</h3>
                 </div>
 
-                <div class="feature">
+                <div class="feature" onclick="openModal('State-of-the-Art Smart Classrooms', 'Equipped with high-speed internet, interactive multimedia projectors, digital boards, and ergonomic furniture, our smart classrooms transform traditional lessons into immersive, engaging visual learning experiences.', 'fas fa-school')">
                     <i class="fas fa-school"></i>
                     <h3>Smart Classrooms</h3>
                 </div>
 
-                <div class="feature">
+                <div class="feature" onclick="openModal('Qualified & Passionate Teachers', 'Our educators are not just instructors; they are inspirational role models. Hand-picked through rigorous screening processes, they instill high moral standards, discipline, and academic passion in every student.', 'fas fa-chalkboard-teacher')">
                 <i class="fas fa-chalkboard-teacher"></i>
                 <h3>Qualified Teachers</h3>
                 </div>
                 
-                <div class="feature">
+                <div class="feature" onclick="openModal('Unmatched Academic Excellence', 'We have a long-standing track record of academic excellence, marked by exceptional board examination results, high scholarship attainments, and competitive success across various inter-school platforms.', 'fas fa-graduation-cap')">
                     <i class="fas fa-graduation-cap"></i>
                     <h3>Academic Excellence</h3>
                 </div>
-                <div class="feature">
+                <div class="feature" onclick="openModal('Achievements & Extracurricular Awards', 'Beyond textbooks, our students shine brightly in district and provincial sports championships, declamation contests, art competitions, and annual science exhibitions.', 'fas fa-trophy')">
                     <i class="fas fa-trophy"></i>
                     <h3>Achievements & Awards</h3>
                 </div>
 
-                <div class="feature">
+                <div class="feature" onclick="openModal('Strictly Safe & Secure Environment', 'Safety is our utmost priority. The campus is monitored 24/7 via advanced CCTV security systems, secured entry gates, strict visitor logs, and dedicated staff to ensure a peaceful atmosphere.', 'fas fa-shield-alt')">
                     <i class="fas fa-shield-alt"></i>
                     <h3>Safe Environment</h3>
                 </div>
@@ -1171,172 +1140,172 @@ html{
         <div class="modules-grid">
 
             <div class="module-card">
-    <a href="{{ asset('images/m1.png') }}" class="module-link">
-        <img src="{{ asset('images/m1.png') }}" alt="">
-    </a>
-    <h3>Teacher Guide</h3>
-</div>
+                <a href="{{ asset('images/m1.png') }}" class="gallery-link" data-title="Teacher Guide">
+                    <img src="{{ asset('images/m1.png') }}" alt="Teacher Guide">
+                    <h3>Teacher Guide</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m2.png') }}" class="module-link">
-        <img src="{{ asset('images/m2.png') }}" alt="">
-    </a>
-    <h3>Topic</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m2.png') }}" class="gallery-link" data-title="Topic">
+                    <img src="{{ asset('images/m2.png') }}" alt="Topic">
+                    <h3>Topic</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m3.png') }}" class="module-link">
-        <img src="{{ asset('images/m3.png') }}" alt="">
-    </a>
-    <h3>Work Book</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m3.png') }}" class="gallery-link" data-title="Work Book">
+                    <img src="{{ asset('images/m3.png') }}" alt="Work Book">
+                    <h3>Work Book</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m4.png') }}" class="module-link">
-        <img src="{{ asset('images/m4.png') }}" alt="">
-    </a>
-    <h3>Answer Key</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m4.png') }}" class="gallery-link" data-title="Answer Key">
+                    <img src="{{ asset('images/m4.png') }}" alt="Answer Key">
+                    <h3>Answer Key</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m5.png') }}" class="module-link">
-        <img src="{{ asset('images/m5.png') }}" alt="">
-    </a>
-    <h3>Videos</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m5.png') }}" class="gallery-link" data-title="Videos">
+                    <img src="{{ asset('images/m5.png') }}" alt="Videos">
+                    <h3>Videos</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m6.png') }}" class="module-link">
-        <img src="{{ asset('images/m6.png') }}" alt="">
-    </a>
-    <h3>Exam Pack</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m6.png') }}" class="gallery-link" data-title="Exam Pack">
+                    <img src="{{ asset('images/m6.png') }}" alt="Exam Pack">
+                    <h3>Exam Pack</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m7.jpg') }}" class="module-link">
-        <img src="{{ asset('images/m7.jpg') }}" alt="">
-    </a>
-    <h3>Summer Pack</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m7.jpg') }}" class="gallery-link" data-title="Summer Pack">
+                    <img src="{{ asset('images/m7.jpg') }}" alt="Summer Pack">
+                    <h3>Summer Pack</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m8.png') }}" class="module-link">
-        <img src="{{ asset('images/m8.png') }}" alt="">
-    </a>
-    <h3>Assessment</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m8.png') }}" class="gallery-link" data-title="Assessment">
+                    <img src="{{ asset('images/m8.png') }}" alt="Assessment">
+                    <h3>Assessment</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m9.png') }}" class="module-link">
-        <img src="{{ asset('images/m9.png') }}" alt="">
-    </a>
-    <h3>Result</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m9.png') }}" class="gallery-link" data-title="Result">
+                    <img src="{{ asset('images/m9.png') }}" alt="Result">
+                    <h3>Result</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m10.png') }}" class="module-link">
-        <img src="{{ asset('images/m10.png') }}" alt="">
-    </a>
-    <h3>Honour Wall</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m10.png') }}" class="gallery-link" data-title="Honour Wall">
+                    <img src="{{ asset('images/m10.png') }}" alt="Honour Wall">
+                    <h3>Honour Wall</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m11.png') }}" class="module-link">
-        <img src="{{ asset('images/m11.png') }}" alt="">
-    </a>
-    <h3>Daily Diary</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m11.png') }}" class="gallery-link" data-title="Daily Diary">
+                    <img src="{{ asset('images/m11.png') }}" alt="Daily Diary">
+                    <h3>Daily Diary</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m12.png') }}" class="module-link">
-        <img src="{{ asset('images/m12.png') }}" alt="">
-    </a>
-    <h3>Mind Map</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m12.png') }}" class="gallery-link" data-title="Mind Map">
+                    <img src="{{ asset('images/m12.png') }}" alt="Mind Map">
+                    <h3>Mind Map</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m13.png') }}" class="module-link">
-        <img src="{{ asset('images/m13.png') }}" alt="">
-    </a>
-    <h3>Short Questions</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m13.png') }}" class="gallery-link" data-title="Short Questions">
+                    <img src="{{ asset('images/m13.png') }}" alt="Short Questions">
+                    <h3>Short Questions</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m14.png') }}" class="module-link">
-        <img src="{{ asset('images/m14.png') }}" alt="">
-    </a>
-    <h3>MCQs</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m14.png') }}" class="gallery-link" data-title="MCQs">
+                    <img src="{{ asset('images/m14.png') }}" alt="MCQs">
+                    <h3>MCQs</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m15.png') }}" class="module-link">
-        <img src="{{ asset('images/m15.png') }}" alt="">
-    </a>
-    <h3>Cross Word</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m15.png') }}" class="gallery-link" data-title="Cross Word">
+                    <img src="{{ asset('images/m15.png') }}" alt="Cross Word">
+                    <h3>Cross Word</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m16.png') }}" class="module-link">
-        <img src="{{ asset('images/m16.png') }}" alt="">
-    </a>
-    <h3>Word Game</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m16.png') }}" class="gallery-link" data-title="Word Game">
+                    <img src="{{ asset('images/m16.png') }}" alt="Word Game">
+                    <h3>Word Game</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m17.png') }}" class="module-link">
-        <img src="{{ asset('images/m17.png') }}" alt="">
-    </a>
-    <h3>Jumbled Word</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m17.png') }}" class="gallery-link" data-title="Jumbled Word">
+                    <img src="{{ asset('images/m17.png') }}" alt="Jumbled Word">
+                    <h3>Jumbled Word</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m18.png') }}" class="module-link">
-        <img src="{{ asset('images/m18.png') }}" alt="">
-    </a>
-    <h3>Activity</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m18.png') }}" class="gallery-link" data-title="Activity">
+                    <img src="{{ asset('images/m18.png') }}" alt="Activity">
+                    <h3>Activity</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m19.png') }}" class="module-link">
-        <img src="{{ asset('images/m19.png') }}" alt="">
-    </a>
-    <h3>Column</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m19.png') }}" class="gallery-link" data-title="Column">
+                    <img src="{{ asset('images/m19.png') }}" alt="Column">
+                    <h3>Column</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m20.png') }}" class="module-link">
-        <img src="{{ asset('images/m20.png') }}" alt="">
-    </a>
-    <h3>Fill Ups</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m20.png') }}" class="gallery-link" data-title="Fill Ups">
+                    <img src="{{ asset('images/m20.png') }}" alt="Fill Ups">
+                    <h3>Fill Ups</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m21.png') }}" class="module-link">
-        <img src="{{ asset('images/m21.png') }}" alt="">
-    </a>
-    <h3>True & False</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m21.png') }}" class="gallery-link" data-title="True & False">
+                    <img src="{{ asset('images/m21.png') }}" alt="True & False">
+                    <h3>True & False</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m22.png') }}" class="module-link">
-        <img src="{{ asset('images/m22.png') }}" alt="">
-    </a>
-    <h3>Labelling</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m22.png') }}" class="gallery-link" data-title="Labelling">
+                    <img src="{{ asset('images/m22.png') }}" alt="Labelling">
+                    <h3>Labelling</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m23.png') }}" class="module-link">
-        <img src="{{ asset('images/m23.png') }}" alt="">
-    </a>
-    <h3>Drag & Drop</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m23.png') }}" class="gallery-link" data-title="Drag & Drop">
+                    <img src="{{ asset('images/m23.png') }}" alt="Drag & Drop">
+                    <h3>Drag & Drop</h3>
+                </a>
+            </div>
 
-<div class="module-card">
-    <a href="{{ asset('images/m24.png') }}" class="module-link">
-        <img src="{{ asset('images/m24.png') }}" alt="">
-    </a>
-    <h3>Applications</h3>
-</div>
+            <div class="module-card">
+                <a href="{{ asset('images/m24.png') }}" class="gallery-link" data-title="Applications">
+                    <img src="{{ asset('images/m24.png') }}" alt="Applications">
+                    <h3>Applications</h3>
+                </a>
+            </div>
             
         </div>
 
@@ -1351,10 +1320,12 @@ html{
         <div class="container principal-content">
 
             <div class="principal-image">
-                <img src="images/p1.png" alt="Principal">
+                <a href="{{ asset('images/p1.png') }}" class="gallery-link" data-title="Principal - Sarfraz Ahmad Bhatti">
+                    <img src="{{ asset('images/p1.png') }}" alt="Principal">
+                </a>
             </div>
 
-            <div class="principal-text">
+            <div class="principal-text" onclick="openModal('Principal\'s Complete Message', 'Dear Parents, Students, and Well-Wishers,\n\nWelcome to Sublime School System! As the Principal, it is my utmost privilege to lead an institution where education transcends ordinary textbooks and shapes the holistic character of every child.\n\nWe firmly believe that every child possesses unique potential waiting to be unlocked. Our dedicated faculty and staff work tirelessly to foster an inspiring, disciplined, and nurturing environment where curiosity is encouraged, moral values are deeply instilled, and academic rigor goes hand-in-hand with emotional well-being.\n\nEducation is a collaborative partnership between the school, parents, and the community. Together, we can guide our students to become confident, resilient, and socially responsible leaders of tomorrow. Thank you for entrusting us with your child\'s future.\n\nWarm Regards,\nSarfraz Ahmad Bhatti', 'fas fa-user-tie')">
 
                 <h2 class="section-title">
                     Principal's Message
@@ -1363,7 +1334,7 @@ html{
                 <p>
                     We believe every child has the potential
                     to succeed when provided with the right
-                    guidance and opportunities.
+                    guidance and opportunities. (Click here to read full message)
                 </p>
 
                 <br>
@@ -1387,22 +1358,23 @@ html{
             </h2>
 
             <div class="news-grid">
-<div class="news-card">
-    <i class="fas fa-bus"></i>
-    <h3>Educational Trip</h3>
-    <p>15 October 2026</p>
-</div>
+                <div class="news-card" onclick="openModal('Educational Trip Details', 'Date: 15 October 2026.\n\nOur upcoming educational trip aims to provide students with practical, outdoor exposure. Trips are carefully planned to historical or scientific landmarks to bridge classroom concepts with real-world experiences. Safety protocols and teacher escorts are fully arranged to ensure a memorable journey.', 'fas fa-bus')">
+                    <i class="fas fa-bus"></i>
+                    <h3>Educational Trip</h3>
+                    <p>15 October 2026</p>
+                </div>
 
-               <div class="news-card">
-    <i class="fas fa-user-plus"></i>
-    <h3>Admissions Open</h3>
-    <p>Session 2026-27</p>
-</div><div class="news-card">
-    <i class="fas fa-flask"></i>
-    <h3>Science Exhibition</h3>
-    <p>10 July 2026</p>
-</div>
+                <div class="news-card" onclick="openModal('Admissions Open (Session 2026-27)', 'Admissions for Session 2026-27 are officially open across all grades. We invite parents to visit our campus, interact with our faculty, and explore our state-of-the-art facilities. Early registration ensures priority placement and scholarship considerations.', 'fas fa-user-plus')">
+                    <i class="fas fa-user-plus"></i>
+                    <h3>Admissions Open</h3>
+                    <p>Session 2026-27</p>
+                </div>
 
+                <div class="news-card" onclick="openModal('Science Exhibition Highlights', 'Date: 10 July 2026.\n\nThe Annual Science Exhibition witnessed extraordinary talent from our students. Ranging from renewable energy models to working robotics and environmental awareness projects, young scientists displayed exceptional innovation and presentation skills.', 'fas fa-flask')">
+                    <i class="fas fa-flask"></i>
+                    <h3>Science Exhibition</h3>
+                    <p>10 July 2026</p>
+                </div>
             </div>
 
         </div>
@@ -1426,21 +1398,51 @@ html{
 
             <br>
 
-<a href="{{ url('/applynow') }}" class="btn">
-    Apply Now
-</a>
+            <a href="{{ url('/applynow') }}" class="btn">
+                Apply Now
+            </a>
 
         </div>
 
     </section>
 
- @include('includes.footer')
+@include('includes.footer')
 @include('includes.scroll')
+
+<!-- UNIVERSAL POPUP MODAL HTML -->
+<div id="universalModal" class="custom-modal">
+    <div class="custom-modal-content">
+        <span class="custom-modal-close" onclick="closeModal()">&times;</span>
+        <i id="modalIcon" class=""></i>
+        <h3 id="modalTitle"></h3>
+        <p id="modalDesc" style="white-space: pre-line;"></p>
+    </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 <script>
+// Initialize GLightbox for gallery items
 const lightbox = GLightbox({
-    selector: '.module-link'
+    selector: '.gallery-link'
+});
+
+// Universal Text Modal JavaScript Functions
+function openModal(title, description, iconClass) {
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalDesc').innerText = description;
+    document.getElementById('modalIcon').className = iconClass;
+    document.getElementById('universalModal').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('universalModal').style.display = 'none';
+}
+
+window.addEventListener('click', function(event) {
+    let modal = document.getElementById('universalModal');
+    if (event.target === modal) {
+        closeModal();
+    }
 });
 </script>
 
