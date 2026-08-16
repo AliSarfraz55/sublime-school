@@ -361,6 +361,12 @@ animation:loading 2s linear infinite;
 0%,100%{transform:scale(1);}
 50%{transform:scale(1.15);}
 }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* Yeh blue flash ko khatam kar dega */
+}
 </style>
 
 </head>

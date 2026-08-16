@@ -31,6 +31,12 @@
   transform:scale(1.1);
   background:#1ebe5d;
 }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* Yeh blue flash ko khatam kar dega */
+}
 </style>
 
 <a href="https://wa.me/+923466518707" class="whatsapp" target="_blank">

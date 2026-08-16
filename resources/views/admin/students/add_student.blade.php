@@ -175,6 +175,12 @@ textarea{
     }
 
 }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* Yeh blue flash ko khatam kar dega */
+}
 </style>
 </head>
 <body>

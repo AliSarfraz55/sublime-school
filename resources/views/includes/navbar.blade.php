@@ -232,7 +232,12 @@ box-shadow:0 8px 32px rgba(0,0,0,.08);
 .nav-links a:hover{
     letter-spacing:.5px;
 }
-
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* Yeh blue flash ko khatam kar dega */
+}
 </style>
 
 <nav>
