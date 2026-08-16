@@ -182,7 +182,6 @@ footer ul li a:hover{
     gap:40px;
 }
 
-/* Choti screen par sabhi columns aur contents ko center karne ke liye */
 .footer-grid div {
     display: flex;
     flex-direction: column;
@@ -198,8 +197,12 @@ footer ul li a:hover{
     justify-content:center;
 }
 
-.social{
-    justify-content:center;
+/* Social icons ko aik hi line (row) mein center karne ke liye */
+.footer-grid div .social{
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 .footer-title{
