@@ -198,7 +198,9 @@ footer ul li a:hover{
 .footer-title{
     font-size:25px;
 }
-
+.contact-item span {
+    white-space: nowrap;
+}
 }
 </style>
     <footer id="contact">
