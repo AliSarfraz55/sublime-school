@@ -182,6 +182,13 @@ footer ul li a:hover{
     gap:40px;
 }
 
+/* Choti screen par sabhi columns aur contents ko center karne ke liye */
+.footer-grid div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .footer-grid h3::after{
     left:50%;
     transform:translateX(-50%);
@@ -203,7 +210,8 @@ footer ul li a:hover{
 }
 }
 </style>
-    <footer id="contact">
+
+<footer id="contact">
 
     <div class="container footer-grid">
 
@@ -238,14 +246,14 @@ footer ul li a:hover{
         <div>
 
             <h3>Quick Links</h3>
-  <ul>
-        <li><a href="{{ url('/login') }}">Login</a></li>
-        <li><a href="{{ url('/about') }}">About</a></li>
-        <li><a href="{{ url('/admission') }}">Admissions</a></li>
-        <li><a href="{{ url('/gallery') }}">Gallery</a></li>
-        <li><a href="{{ url('/academic') }}">Academics</a></li>
-        <li><a href="{{ url('/contact') }}">Contact</a></li>
-      </ul>
+            <ul>
+                <li><a href="{{ url('/login') }}">Login</a></li>
+                <li><a href="{{ url('/about') }}">About</a></li>
+                <li><a href="{{ url('/admission') }}">Admissions</a></li>
+                <li><a href="{{ url('/gallery') }}">Gallery</a></li>
+                <li><a href="{{ url('/academic') }}">Academics</a></li>
+                <li><a href="{{ url('/contact') }}">Contact</a></li>
+            </ul>
 
         </div>
 
