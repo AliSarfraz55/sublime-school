@@ -312,7 +312,7 @@ input[type="file"]{
             Back to Teachers
         </a>
     </div>
-<form action="{{ url('/store_teacher') }}" method="POST" enctype="multipart/form-data">
+<form action="/store_teacher" method="POST" enctype="multipart/form-data">
     @csrf
 
         <!-- Basic Information -->

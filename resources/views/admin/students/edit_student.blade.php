@@ -215,11 +215,11 @@ textarea{
     </div>
 
     <!-- FORM -->
-    <form action="{{ url('/update_student/'.$student->id) }}"
-          method="POST"
-          enctype="multipart/form-data">
+    <form action="/update_student/{{ $student->id }}"
+      method="POST"
+      enctype="multipart/form-data">
 
-        @csrf
+    @csrf
 
         <!-- BASIC INFO -->
         <div class="activity">
