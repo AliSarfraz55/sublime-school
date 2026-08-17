@@ -213,12 +213,14 @@ textarea{
         </a>
     </div>
 
-    <!-- FORM -->
-    <form action="{{ url('/update_teacher/'.$teacher->id) }}"
-          method="POST"
-          enctype="multipart/form-data">
+    <form action="/update_teacher/{{ $teacher->id }}"
+      method="POST"
+      enctype="multipart/form-data">
 
-        @csrf
+    @csrf
+
+    <input type="hidden" name="role" value="{{ $teacher->role }}">
+    <input type="hidden" name="access" value="{{ $teacher->access }}">
 
         <!-- BASIC INFO -->
         <div class="activity">

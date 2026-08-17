@@ -84,8 +84,8 @@ class TeacherController extends Controller
         'password' => Hash::make($request->password),
 
         // NEW
-        'role' => $request->role,
-        'access' => $request->access,
+        'role' => 'teacher',
+'access' => 'attendance',
 
         'created_at' => now(),
         'updated_at' => now(),
@@ -120,7 +120,14 @@ class TeacherController extends Controller
    
     public function update_teacher(Request $request, $id)
     {
-        $teacher = DB::table('add_teacher')->where('id', $id)->first();
+       dd([
+        'id' => $id,
+        'role' => $request->role,
+        'access' => $request->access,
+        'all' => $request->all(),
+    ]);
+
+    $teacher = DB::table('add_teacher')->where('id', $id)->first();
 
         $photo = $teacher->photo;
 
@@ -168,8 +175,8 @@ class TeacherController extends Controller
         'username' => $request->username ?? $teacher->username,
 
         // NEW
-        'role' => $request->role,
-        'access' => $request->access,
+       'role' => $teacher->role ?: 'teacher',
+'access' => $teacher->access ?: 'attendance',
 
         'updated_at' => now(),
     ]);
