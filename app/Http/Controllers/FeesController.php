@@ -97,14 +97,23 @@ public function fees()
 
         $receiptImage = null;
 
-        if ($request->hasFile('receipt_image')) {
+      if ($request->hasFile('receipt_image')) {
 
-            $file = $request->file('receipt_image');
+    $folder = public_path('receipt_images');
 
-            $receiptImage = time().'_'.$file->getClientOriginalName();
+    // Folder create if it does not exist
+    if (!file_exists($folder)) {
+        mkdir($folder, 0755, true);
+    }
 
-            $file->move(public_path('receipt_images'), $receiptImage);
-        }
+    $file = $request->file('receipt_image');
+
+    // Unique file name
+    $receiptImage = time() . '_' . uniqid() . '.' . $file->extension();
+
+    // Upload receipt
+    $file->move($folder, $receiptImage);
+}
 
         DB::table('fees')->insert([
 
@@ -199,18 +208,28 @@ public function update_fee(Request $request, $id)
         ->value('receipt_image');
 
     // Upload New Receipt
-    if ($request->hasFile('receipt_image')) {
+  if ($request->hasFile('receipt_image')) {
 
-        if ($receiptImage && file_exists(public_path('receipt_images/'.$receiptImage))) {
-            unlink(public_path('receipt_images/'.$receiptImage));
-        }
+    $folder = public_path('receipt_images');
 
-        $file = $request->file('receipt_image');
-
-        $receiptImage = time().'_'.$file->getClientOriginalName();
-
-        $file->move(public_path('receipt_images'), $receiptImage);
+    // Folder create if it does not exist
+    if (!file_exists($folder)) {
+        mkdir($folder, 0755, true);
     }
+
+    // Delete old receipt
+    if ($receiptImage && file_exists($folder . '/' . $receiptImage)) {
+        unlink($folder . '/' . $receiptImage);
+    }
+
+    $file = $request->file('receipt_image');
+
+    // Unique file name
+    $receiptImage = time() . '_' . uniqid() . '.' . $file->extension();
+
+    // Upload new receipt
+    $file->move($folder, $receiptImage);
+}
 
     $discount = $request->discount ?? 0;
     $fine = $request->fine ?? 0;

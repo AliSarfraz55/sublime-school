@@ -6,128 +6,126 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class GalleryController extends Controller
-
 {
+    // Gallery Management
+    public function gallery_management()
+    {
+        $galleries = DB::table('galleries')
+            ->orderBy('id', 'DESC')
+            ->get();
 
-// Gallery Management
-public function gallery_management()
-{
-    $galleries = DB::table('galleries')
-        ->orderBy('id', 'DESC')
-        ->get();
+        return view('admin.gallery.gallery_management', compact('galleries'));
+    }
 
-    return view('admin.gallery.gallery_management', compact('galleries'));
-}
-
-    // Add Page
-
+    // Add Gallery Page
     public function add_gallery()
     {
         return view('admin.gallery.add_gallery');
     }
 
     // Save Gallery
-
     public function save_gallery(Request $request)
     {
-
         $request->validate([
-
-            'title'=>'required',
-
-            'status'=>'required',
-
-            'image'=>'required|image'
-
+            'title' => 'required',
+            'status' => 'required',
+            'image' => 'required|image'
         ]);
 
-        $imageName = time().'_'.uniqid().'.'.$request->image->extension();
+        // Upload folder
+        $folder = public_path('uploads/gallery');
 
-        $request->image->move(public_path('uploads/gallery'),$imageName);
+        // Create folder if it does not exist
+        if (!file_exists($folder)) {
+            mkdir($folder, 0755, true);
+        }
 
+        // Image name
+        $imageName = time() . '_' . uniqid() . '.' . $request->image->extension();
+
+        // Move image
+        $request->image->move($folder, $imageName);
+
+        // Save in database
         DB::table('galleries')->insert([
-
-            'title'=>$request->title,
-
-            'status'=>$request->status,
-
-            'image'=>$imageName,
-
-            'created_at'=>now(),
-
-            'updated_at'=>now()
-
+            'title' => $request->title,
+            'status' => $request->status,
+            'image' => $imageName,
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
 
-       return redirect('/gallery_management')->with('success','Gallery Added Successfully');
-
+        return redirect('/gallery_management')
+            ->with('success', 'Gallery Added Successfully');
     }
 
     // View Gallery
-
     public function view_gallery($id)
     {
-        $gallery=DB::table('galleries')->where('id',$id)->first();
+        $gallery = DB::table('galleries')
+            ->where('id', $id)
+            ->first();
 
-        return view('admin.gallery.view_gallery',compact('gallery'));
+        return view('admin.gallery.view_gallery', compact('gallery'));
     }
 
-    // Edit
-
+    // Edit Gallery
     public function edit_gallery($id)
     {
-        $gallery=DB::table('galleries')->where('id',$id)->first();
+        $gallery = DB::table('galleries')
+            ->where('id', $id)
+            ->first();
 
-        return view('admin.gallery.edit_gallery',compact('gallery'));
+        return view('admin.gallery.edit_gallery', compact('gallery'));
     }
 
-    // Update
-
-    public function update_gallery(Request $request,$id)
+    // Update Gallery
+    public function update_gallery(Request $request, $id)
     {
+        $request->validate([
+            'title' => 'required',
+            'status' => 'required',
+            'image' => 'nullable|image'
+        ]);
 
-        $data=[
-
-            'title'=>$request->title,
-
-            'status'=>$request->status,
-
-            'updated_at'=>now()
-
+        $data = [
+            'title' => $request->title,
+            'status' => $request->status,
+            'updated_at' => now()
         ];
 
-        if($request->hasFile('image')){
+        // If new image uploaded
+        if ($request->hasFile('image')) {
 
-            $imageName = time().'_'.uniqid().'.'.$request->image->extension();
+            $folder = public_path('uploads/gallery');
 
-            $request->image->move(public_path('uploads/gallery'),$imageName);
+            // Create folder if it does not exist
+            if (!file_exists($folder)) {
+                mkdir($folder, 0755, true);
+            }
 
-            $data['image']=$imageName;
+            $imageName = time() . '_' . uniqid() . '.' . $request->image->extension();
 
+            $request->image->move($folder, $imageName);
+
+            $data['image'] = $imageName;
         }
 
         DB::table('galleries')
+            ->where('id', $id)
+            ->update($data);
 
-        ->where('id',$id)
-
-        ->update($data);
-
-        return redirect('/gallery_management')->with('success','Gallery Updated Successfully');
-
+        return redirect('/gallery_management')
+            ->with('success', 'Gallery Updated Successfully');
     }
 
-    // Delete
-
+    // Delete Gallery
     public function delete_gallery($id)
     {
-
-        DB::table('galleries')->where('id',$id)->delete();
+        DB::table('galleries')
+            ->where('id', $id)
+            ->delete();
 
         return redirect('/gallery_management');
-
     }
-
-
-
-
 }

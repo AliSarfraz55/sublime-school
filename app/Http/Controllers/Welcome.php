@@ -89,18 +89,26 @@ public function contact_store(Request $request)
         'address'          => 'nullable|string',
         'document'         => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
     ]);
+$documentName = null;
 
-    $documentName = null;
+if ($request->hasFile('document')) {
 
-    if ($request->hasFile('document')) {
+    // Folder path
+    $folder = public_path('admission_documents');
 
-        $documentName = time().'_'.$request->file('document')->getClientOriginalName();
-
-        $request->file('document')->move(
-            public_path('admission_documents'),
-            $documentName
-        );
+    // Create folder if it does not exist
+    if (!file_exists($folder)) {
+        mkdir($folder, 0755, true);
     }
+
+    $file = $request->file('document');
+
+    // Unique file name
+    $documentName = time() . '_' . uniqid() . '.' . $file->extension();
+
+    // Upload document
+    $file->move($folder, $documentName);
+}
 
     DB::table('admissions')->insert([
         'student_name'    => $request->student_name,

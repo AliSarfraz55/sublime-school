@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
-
     public function index()
     {
         $students = DB::table('add_student')->get();
@@ -48,17 +47,26 @@ class StudentController extends Controller
         return view('admin.students.add_student');
     }
 
+    // Store Student
     public function store_student(Request $request)
     {
         $photoName = null;
 
         if ($request->hasFile('photo')) {
-            $photoName = time() . '.' . $request->photo->extension();
 
-            $request->photo->move(
-                public_path('students'),
-                $photoName
-            );
+            // Folder path
+            $folder = public_path('students');
+
+            // Create folder if it doesn't exist
+            if (!file_exists($folder)) {
+                mkdir($folder, 0755, true);
+            }
+
+            // Unique image name
+            $photoName = time() . '_' . uniqid() . '.' . $request->photo->extension();
+
+            // Upload image
+            $request->photo->move($folder, $photoName);
         }
 
         DB::table('add_student')->insert([
@@ -82,8 +90,7 @@ class StudentController extends Controller
             ->with('success', 'Student Added Successfully');
     }
 
-    
-
+    // View Student
     public function view_student($id)
     {
         $student = DB::table('add_student')
@@ -93,6 +100,7 @@ class StudentController extends Controller
         return view('admin.students.view_student', compact('student'));
     }
 
+    // Edit Student
     public function edit_student($id)
     {
         $student = DB::table('add_student')
@@ -102,6 +110,7 @@ class StudentController extends Controller
         return view('admin.students.edit_student', compact('student'));
     }
 
+    // Update Student
     public function update_student(Request $request, $id)
     {
         $student = DB::table('add_student')
@@ -111,12 +120,20 @@ class StudentController extends Controller
         $photoName = $student->photo;
 
         if ($request->hasFile('photo')) {
-            $photoName = time() . '.' . $request->photo->extension();
 
-            $request->photo->move(
-                public_path('students'),
-                $photoName
-            );
+            // Folder path
+            $folder = public_path('students');
+
+            // Create folder if it doesn't exist
+            if (!file_exists($folder)) {
+                mkdir($folder, 0755, true);
+            }
+
+            // Unique image name
+            $photoName = time() . '_' . uniqid() . '.' . $request->photo->extension();
+
+            // Upload new image
+            $request->photo->move($folder, $photoName);
         }
 
         DB::table('add_student')
@@ -141,9 +158,12 @@ class StudentController extends Controller
             ->with('success', 'Student Updated Successfully');
     }
 
+    // Delete Student
     public function delete_student($id)
     {
-        DB::table('add_student')->where('id', $id)->delete();
+        DB::table('add_student')
+            ->where('id', $id)
+            ->delete();
 
         return redirect('/student')
             ->with('success', 'Student Deleted Successfully');
