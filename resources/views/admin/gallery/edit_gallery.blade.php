@@ -141,7 +141,19 @@ section{
 .button-area button:hover{
     background:#1d4ed8;
 }
+.form-group select{
+    width:100%;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    outline:none;
+    background:#fff;
+    font-size:16px;
+}
 
+.form-group select:focus{
+    border-color:#2563eb;
+}
 @media(max-width:768px){
 
 .main{
@@ -209,7 +221,23 @@ value="{{ $gallery->title }}"
 required>
 
 </div>
+<div class="form-group">
 
+    <label>Gallery Status</label>
+
+    <select name="status" required>
+        <option value="Published"
+            {{ $gallery->status == 'Published' ? 'selected' : '' }}>
+            Published
+        </option>
+
+        <option value="Draft"
+            {{ $gallery->status == 'Draft' ? 'selected' : '' }}>
+            Draft
+        </option>
+    </select>
+
+</div>
 <div class="form-group">
 
 <label>Change Image</label>
