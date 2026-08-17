@@ -153,7 +153,7 @@ table tr:hover{
 }
 
 .pending{
-    background: #fff707;
+    background: #c90404;
     color: #ffffff;
 }
 
