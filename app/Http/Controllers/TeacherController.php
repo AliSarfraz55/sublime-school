@@ -120,12 +120,7 @@ class TeacherController extends Controller
    
     public function update_teacher(Request $request, $id)
     {
-       dd([
-        'id' => $id,
-        'role' => $request->role,
-        'access' => $request->access,
-        'all' => $request->all(),
-    ]);
+      
 
     $teacher = DB::table('add_teacher')->where('id', $id)->first();
 
