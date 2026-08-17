@@ -202,8 +202,8 @@ textarea{
         </a>
     </div>
 
-   <form action="{{ url('/store_student') }}"
-      method="POST"
+   <form action="/store_student" 
+      method="POST" 
       enctype="multipart/form-data">
 
     @csrf
@@ -354,7 +354,7 @@ textarea{
                 Save Student
             </button>
 
-            <a href="{{ url('/students') }}" class="cancel-btn">
+            <a href="{{ url('/student') }}" class="cancel-btn">
                 Cancel
             </a>
 
