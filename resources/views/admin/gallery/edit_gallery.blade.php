@@ -204,11 +204,11 @@ Back
 
 <div class="form-box">
 
-<form action="{{ url('/update_gallery/'.$gallery->id) }}"
-method="POST"
-enctype="multipart/form-data">
+<form action="/update_gallery/{{ $gallery->id }}"
+      method="POST"
+      enctype="multipart/form-data">
 
-@csrf
+    @csrf
 
 <div class="form-group">
 
