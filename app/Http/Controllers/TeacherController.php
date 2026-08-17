@@ -172,13 +172,19 @@ class TeacherController extends Controller
         'iban' => $request->iban,
         'photo' => $photo,
 
-        'username' => $request->username ?? $teacher->username,
+'username' => $request->filled('username')
+    ? $request->username
+    : $teacher->username,
 
-        // NEW
-       'role' => $teacher->role ?: 'teacher',
-'access' => $teacher->access ?: 'attendance',
+'role' => $request->filled('role')
+    ? $request->role
+    : ($teacher->role ?? 'teacher'),
 
-        'updated_at' => now(),
+'access' => $request->filled('access')
+    ? $request->access
+    : ($teacher->access ?? 'attendance'),
+
+'updated_at' => now(),
     ]);
 
         return redirect('/teacher')->with('success', 'Teacher Updated Successfully');
