@@ -100,19 +100,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent; /* Yeh blue flash ko khatam kar dega */
+    -webkit-tap-highlight-color: transparent;
 }
 </style>
 
-   <button class="menu-toggle" id="menuToggle">
+<button class="menu-toggle" id="menuToggle">
     <i class="fas fa-bars"></i>
 </button>
-    <!-- Sidebar -->
-
 
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-<div class="sidebar" id="sidebar">   
+<div class="sidebar" id="sidebar">    
 
 <ul>
 
@@ -143,8 +141,7 @@
 </a>
 </li>
 
-@if(session('access') == 'full' || session('role') == 'admin')
-
+<!-- Students link ab yahan se condition remove kar di gayi hai taake yeh hamesha show ho -->
 <li>
 <a href="{{ url('/student') }}"
 class="{{ request()->is('student') ||
@@ -155,8 +152,6 @@ class="{{ request()->is('student') ||
     <span>Students</span>
 </a>
 </li>
-
-@endif
 
 <li>
 <a href="{{ url('/teacher') }}"
@@ -183,7 +178,6 @@ class="{{ request()->is('class') ||
 <li>
 <a href="{{ url('/exam') }}"
 class="{{ request()->is('exam') ||
-          
           request()->is('view_exam/*') ||
           request()->is('edit_exam/*') ||
           request()->is('schedule_exam/*') ? 'active' : '' }}">
@@ -312,7 +306,7 @@ class="{{ request()->is('admissions') ||
 
 </ul>
 
-    </div>
+</div>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
 
