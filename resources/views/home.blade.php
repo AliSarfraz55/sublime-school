@@ -272,9 +272,27 @@ html{
         flex-direction:column;
     }
 
-    .hero-stats div{
-        width:100%;
-        max-width:180px;
+    /* Fixed mobile hero stats to prevent overflow */
+    .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-stats div {
+        width: 100%;
+        min-width: unset;
+        padding: 15px 5px;
+    }
+
+    .hero-stats h2 {
+        font-size: 26px;
+    }
+
+    .hero-stats span {
+        font-size: 13px;
     }
 }
 /* ================= HIGHLIGHTS SECTION ================= */
@@ -870,18 +888,6 @@ html{
     }
 }
 
-@media(max-width: 768px) {
-    .hero-stats {
-        justify-content: center;
-        gap: 12px;
-    }
-    .hero-stats div {
-        flex: 1;
-        min-width: 100px;
-        padding: 15px 10px;
-    }
-}
-
 /* ================= CUSTOM UNIVERSAL MODAL POPUP ================= */
 .custom-modal {
     display: none;
@@ -958,12 +964,6 @@ html{
         transform: scale(1);
         opacity: 1;
     }
-}
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent; /* Yeh blue flash ko khatam kar dega */
 }
     </style>
 </head>
