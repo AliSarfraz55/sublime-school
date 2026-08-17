@@ -270,7 +270,7 @@ Back
 <!-- FORM -->
 
 <form
-action="{{ url('/update_subject/'.$subject->id) }}"
+action="/update_subject/{{ $subject->id }}"
 method="POST">
 
 @csrf

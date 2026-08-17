@@ -288,12 +288,11 @@ Back to Blogs
 <!-- FORM -->
 
 <div class="form-box">
+<form action="/update_blog/{{ $blog->id }}"
+      method="POST"
+      enctype="multipart/form-data">
 
-<form action="{{ url('/update_blog/'.$blog->id) }}"
-method="POST"
-enctype="multipart/form-data">
-
-@csrf
+    @csrf
 
 <div class="form-grid">
 

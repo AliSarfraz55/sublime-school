@@ -204,9 +204,9 @@ section{
 
     </div>
 
-    <form action="{{ url('/update_class/'.$class->id) }}" method="POST">
+  <form action="/update_class/{{ $class->id }}" method="POST">
 
-        @csrf
+    @csrf
 
         <!-- Class Information -->
 

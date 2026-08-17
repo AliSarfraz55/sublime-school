@@ -445,9 +445,8 @@ tbody tr:hover{
     </div>
 
     <div class="buttons">
-
-        <form action="{{ url('/attendance/checkin') }}" method="POST">
-            @csrf
+<form action="/attendance/checkin" method="POST">
+    @csrf
 
             <button type="submit" class="btn checkin">
                 <i class="fas fa-sign-in-alt"></i>
@@ -456,9 +455,8 @@ tbody tr:hover{
 
         </form>
 
-        <form action="{{ url('/attendance/checkout') }}" method="POST">
-            @csrf
-
+        <form action="/attendance/checkout" method="POST">
+    @csrf
             <button type="submit" class="btn checkout">
                 <i class="fas fa-sign-out-alt"></i>
                 Check Out

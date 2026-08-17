@@ -229,9 +229,11 @@ textarea{
         </a>
     </div>
 
-    <form method="POST"action="{{ route('publish.notice') }}"enctype="multipart/form-data">
+    <form method="POST"
+      action="/publish_notice"
+      enctype="multipart/form-data">
+
     @csrf
-      
 
         <!-- Notice Information -->
 

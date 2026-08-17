@@ -195,9 +195,9 @@ section{
         </a>
     </div>
 
-   <form action="{{ url('/store_result') }}" method="POST">
-    @csrf
+   <form action="/store_result" method="POST">
 
+    @csrf
         <!-- Result Information -->
 
         <div class="activity">

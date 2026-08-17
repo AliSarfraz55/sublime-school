@@ -240,11 +240,11 @@ textarea{
 
     </div>
 
-    <form method="POST"
-          action="{{ route('notice.update',$notice->id) }}"
-          enctype="multipart/form-data">
+<form method="POST"
+      action="/update_notice/{{ $notice->id }}"
+      enctype="multipart/form-data">
 
-        @csrf
+    @csrf
         @method('PUT')
 
         <div class="activity">

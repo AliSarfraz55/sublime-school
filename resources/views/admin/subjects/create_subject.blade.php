@@ -318,7 +318,7 @@ Add New Subject
 
 
 <form
-action="{{ url('/store_subject') }}"
+action="/store_subject"
 method="POST">
 
 @csrf

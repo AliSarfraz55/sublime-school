@@ -243,12 +243,11 @@ section{
 <section class="admission-page">
 
     <div class="container">
-        <form action="{{ route('admission.store') }}"
+   <form action="/admission_store"
       method="POST"
-      enctype="multipart/form-data"
-      class="admission-form">
+      enctype="multipart/form-data">
 
-@csrf
+    @csrf
         <div class="admission-header">
             <h1>Apply For Admission</h1>
             <p>Join Sublime School System and start your journey towards excellence.</p>

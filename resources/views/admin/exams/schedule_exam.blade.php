@@ -210,7 +210,7 @@ section{
         </a>
     </div>
 
-    <form action="{{ url('/store_exam') }}" method="POST">
+   <form action="/store_exam" method="POST">
 
     @csrf
        

@@ -207,7 +207,7 @@ section{
         </a>
     </div>
 
-    <form action="{{ route('store_class') }}" method="POST">
+    <form action="/store_class" method="POST">
 
     @csrf
         

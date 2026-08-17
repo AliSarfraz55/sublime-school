@@ -663,11 +663,10 @@ Send Message
 </div>
 @endif
 
+<form action="/contact_store"
+      method="POST">
 
-<form action="{{ route('contact.store') }}"
-method="POST">
-
-@csrf
+    @csrf
 
 <input
 type="text"

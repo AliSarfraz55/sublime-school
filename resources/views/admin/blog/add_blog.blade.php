@@ -322,11 +322,11 @@ input[type=file]{
 
 <div class="form-box">
 
-<form action="{{ url('/save_blog') }}"
+<form action="/save_blog"
       method="POST"
       enctype="multipart/form-data">
 
-@csrf
+    @csrf
 
 <div class="form-grid">
 

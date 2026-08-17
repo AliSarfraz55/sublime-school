@@ -199,10 +199,10 @@ textarea{
 
     <!-- FORM -->
 
-    <form action="{{ url('/update_exam/'.$exam->id) }}"
-          method="POST">
+    <form action="/update_exam/{{ $exam->id }}"
+      method="POST">
 
-        @csrf
+    @csrf
 
         <!-- EXAM INFORMATION -->
 

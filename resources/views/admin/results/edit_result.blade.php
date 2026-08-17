@@ -218,10 +218,10 @@ textarea{
 
 </div>
 
-<form action="{{ url('/update_result/'.$result->id) }}"
+<form action="/update_result/{{ $result->id }}"
       method="POST">
 
-@csrf
+    @csrf
 
 <div class="activity">
 

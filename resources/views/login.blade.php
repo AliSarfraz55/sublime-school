@@ -506,7 +506,7 @@ animation:loading 2s linear infinite;
 <!-- REGISTER -->
 <form id="registerForm"
       class="form-box hidden"
-      action="{{ route('register') }}"
+      action="/register"
       method="POST">
 
     @csrf
