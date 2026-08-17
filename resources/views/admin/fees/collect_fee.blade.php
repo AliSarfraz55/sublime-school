@@ -263,7 +263,10 @@ section{
 
     
 
-    <form action="{{ route('fees.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="/fees/store"
+      method="POST"
+      enctype="multipart/form-data">
+
     @csrf
         
 

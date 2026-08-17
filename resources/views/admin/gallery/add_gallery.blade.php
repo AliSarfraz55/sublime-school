@@ -283,11 +283,11 @@ Back to Gallery
 
 @endif
 
-<form action="{{ url('/save_gallery') }}"
-method="POST"
-enctype="multipart/form-data">
+<form action="/save_gallery"
+      method="POST"
+      enctype="multipart/form-data">
 
-@csrf
+    @csrf
 
 <div class="form-grid">
 

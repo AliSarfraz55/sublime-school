@@ -239,11 +239,11 @@ section{
 
     </div>
 
-    <form action="{{ url('/update_fee/'.$fee->id) }}"
-          method="POST"
-          enctype="multipart/form-data">
+    <form action="/update_fee/{{ $fee->id }}"
+      method="POST"
+      enctype="multipart/form-data">
 
-        @csrf
+    @csrf
 
         <!-- Student Information -->
 
